@@ -62,51 +62,73 @@ struct YouBileSareaView: View {
             }
         }
         NavigationStack {
-            Text("Searching for \(searchText)")
+            Text("搜尋... \(searchText)")
             VStack {
                 ScrollView {
-                    LazyVGrid(columns: layout){
+                    LazyVGrid(columns: layout) {
                         Group {
                             Text("縣市")
+                                .background(
+                                    UnevenRoundedRectangle(cornerRadii: .init(topLeading: 25))
+                                        .fill(.ubikeGreen)
+                                        .frame(width: 120, height: 50)
+                                )
                             Text("區域")
+                                .background(
+                                    Rectangle()
+                                        .fill(.ubikeGreen)
+                                        .frame(width: 150, height: 50)
+                                )
                             Text("站點名稱")
+                                .background(
+                                    UnevenRoundedRectangle(cornerRadii: .init(topLeading: 25, topTrailing: 25))
+                                        .fill(.ubikeGreen)
+                                        .frame(width: 200, height: 50)
+                                )
+                                
                         }
+                        
                         .foregroundStyle(.white)
                         .padding()
-                        .background(.ubikeGreen)
                         
                         if searchText.isEmpty {
+                            
                             ForEach(youbikes, id: \.id) { item in
                                 var processedString: String {
                                     let prefixToRemove = "YouBike2.0_"
                                     return item.sna.replacingOccurrences(of: prefixToRemove, with: "")
                                 }
+                                
                                 Group {
                                     Text("台北市")
                                     Text("\(item.sarea)")
                                     Text(processedString)
                                 }
-                                .foregroundStyle(.black)
-                                .background( Int(item.sno)! % 2 == 0 ? .white: .gray)
+                                .foregroundStyle(
+                                    Int(item.sno)! % 2 == 0 ? .black : .brown
+                                )
+
                             }
                             .padding([.horizontal, .bottom])
+                     
                         } else {
                             
-                            let sarea1Data = youbikes.filter { $0.sarea.contains(String(searchText)) }
-                            ForEach(sarea1Data, id: \.id) { item in
-                                var processedString: String {
-                                    let prefixToRemove = "YouBike2.0_"
-                                    return item.sna.replacingOccurrences(of: prefixToRemove, with: "")
+                                let sareaData = youbikes.filter { $0.sarea.contains(String(searchText)) }
+                                ForEach(sareaData, id: \.id) { item in
+                                    var processedString: String {
+                                        let prefixToRemove = "YouBike2.0_"
+                                        return item.sna.replacingOccurrences(of: prefixToRemove, with: "")
+                                    }
+                                    Group {
+                                        Text("台北市")
+                                        Text("\(item.sarea)")
+                                        Text(processedString)
+                                    }
+                                    .foregroundStyle(
+                                        Int(item.sno)! % 2 == 0 ? .black : .brown
+                                    )
                                 }
-                                Group {
-                                    Text("台北市")
-                                    Text("\(item.sarea)")
-                                    Text(processedString)
-                                }
-                                .foregroundStyle(.black)
-                                .background( Int(item.sno)! % 2 == 0 ? .white: .gray)
-                            }
-                            .padding([.horizontal, .bottom])
+                                .padding([.horizontal, .bottom])
                             
                         }
                     } // LazyVGrid
@@ -114,6 +136,7 @@ struct YouBileSareaView: View {
                     .background(
                         RoundedRectangle(cornerRadius: 25.0)
                             .strokeBorder(.gray, lineWidth: 2)
+                            .fill(.gray.opacity(0.2))
                     )
                     
                 } // ScrollView
@@ -123,14 +146,21 @@ struct YouBileSareaView: View {
                 
             }
             .padding(.horizontal)
-            
- 
-        }
-        .searchable(text: $searchText) {
-            ForEach(searchResults, id: \.self) { result in
-                Text("\(result)").searchCompletion(result)
-                    .foregroundStyle(.primary)
+            .searchable(text: $searchText) {
+                ForEach(searchResults, id: \.self) { result in
+                    Text("\(result)").searchCompletion(result)
+                        .foregroundStyle(.primary)
+                }
             }
+            .dismissKeyboard()
+            // 隱藏搜尋建議
+            /*.searchable(text: $searchText, suggestions: {
+                ForEach(searchResults, id: \.self) { result in
+                    Text("\(result)").searchCompletion(result)
+                        .foregroundStyle(.primary)
+                }
+                .searchSuggestions(.hidden, for: .content)
+            }) */
         }
       
         
@@ -159,41 +189,6 @@ struct YouBileSareaView: View {
     }
 }
 
-struct ContentView8: View {
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(.gray)
-                .frame(width: 200, height: 200)
-
-            RoundedRectangle(cornerRadius: 25)
-                .fill(.red)
-                .frame(width: 200, height: 200)
-
-            UnevenRoundedRectangle(cornerRadii: .init(topLeading: 50, topTrailing: 50))
-                .fill(.orange)
-                .frame(width: 200, height: 200)
-
-            Capsule()
-                .fill(.green)
-                .frame(width: 100, height: 50)
-
-            Ellipse()
-                .fill(.blue)
-                .frame(width: 100, height: 50)
-
-            Circle()
-                .fill(.white)
-                .frame(width: 100, height: 50)
-        }
-    }
-}
-
-
 #Preview("YouBileSareaView") {
     YouBileSareaView()
-}
-
-#Preview("ContentView8") {
-    ContentView8()
 }

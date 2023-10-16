@@ -107,7 +107,6 @@ struct ContentView: View {
                     
                 }
                 .padding(.leading)
-                
                 .background(.ubikeGreen)
                 Spacer()
             }
@@ -115,6 +114,7 @@ struct ContentView: View {
             .sheet(isPresented: $isShowedSarea) {
                 YouBileSareaView()
             }
+            .preferredColorScheme(.light)
         }
         
     }

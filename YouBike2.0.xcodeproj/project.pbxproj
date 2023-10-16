@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2750AFBF2ADD7B8B00AAC7CF /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2750AFBE2ADD7B8B00AAC7CF /* Keyboard.swift */; };
 		277269552AD9A6440058FF5B /* YouBileSareaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277269542AD9A6440058FF5B /* YouBileSareaView.swift */; };
 		2780F9712ADBF470006F8C28 /* LayoutStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2780F9702ADBF470006F8C28 /* LayoutStyle.swift */; };
 		27B0FC472AD3F45E004F3653 /* YouBike2_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0FC462AD3F45E004F3653 /* YouBike2_0App.swift */; };
@@ -14,10 +15,10 @@
 		27B0FC4B2AD3F45F004F3653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B0FC4A2AD3F45F004F3653 /* Assets.xcassets */; };
 		27B0FC4E2AD3F45F004F3653 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B0FC4D2AD3F45F004F3653 /* Preview Assets.xcassets */; };
 		27B0FC552AD3F482004F3653 /* YouBikeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0FC542AD3F482004F3653 /* YouBikeData.swift */; };
-		27B0FC572AD40AC6004F3653 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B0FC562AD40AC6004F3653 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2750AFBE2ADD7B8B00AAC7CF /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
 		277269542AD9A6440058FF5B /* YouBileSareaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouBileSareaView.swift; sourceTree = "<group>"; };
 		2780F9702ADBF470006F8C28 /* LayoutStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutStyle.swift; sourceTree = "<group>"; };
 		27B0FC432AD3F45E004F3653 /* YouBike2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouBike2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,7 +27,6 @@
 		27B0FC4A2AD3F45F004F3653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27B0FC4D2AD3F45F004F3653 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27B0FC542AD3F482004F3653 /* YouBikeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouBikeData.swift; sourceTree = "<group>"; };
-		27B0FC562AD40AC6004F3653 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +63,8 @@
 				27B0FC482AD3F45E004F3653 /* ContentView.swift */,
 				277269542AD9A6440058FF5B /* YouBileSareaView.swift */,
 				2780F9702ADBF470006F8C28 /* LayoutStyle.swift */,
+				2750AFBE2ADD7B8B00AAC7CF /* Keyboard.swift */,
 				27B0FC542AD3F482004F3653 /* YouBikeData.swift */,
-				27B0FC562AD40AC6004F3653 /* SearchBar.swift */,
 				27B0FC4A2AD3F45F004F3653 /* Assets.xcassets */,
 				27B0FC4C2AD3F45F004F3653 /* Preview Content */,
 			);
@@ -150,10 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				27B0FC552AD3F482004F3653 /* YouBikeData.swift in Sources */,
-				27B0FC572AD40AC6004F3653 /* SearchBar.swift in Sources */,
 				27B0FC492AD3F45E004F3653 /* ContentView.swift in Sources */,
 				2780F9712ADBF470006F8C28 /* LayoutStyle.swift in Sources */,
 				277269552AD9A6440058FF5B /* YouBileSareaView.swift in Sources */,
+				2750AFBF2ADD7B8B00AAC7CF /* Keyboard.swift in Sources */,
 				27B0FC472AD3F45E004F3653 /* YouBike2_0App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,7 +295,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -324,7 +324,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
